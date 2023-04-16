@@ -1,5 +1,7 @@
 package Zombies;
 
+import java.awt.Image;
+
 public class Zombies {
     private int zombieSpeed;
     private int zombieHealth;
@@ -7,12 +9,14 @@ public class Zombies {
     private int yCoordinate;
     protected static boolean gameOver = false;
     protected static int zombieCount = 0;
+    Image image;
 
-    public Zombies(int zombieSpeed,int zombieHealth,int xCoordinate,int yCoordinate){
+    public Zombies(int zombieSpeed,int zombieHealth,int xCoordinate,int yCoordinate,Image image){
         this.zombieSpeed = zombieSpeed;
         this.zombieHealth = zombieHealth;
         this.xCoordinate = xCoordinate;
         this.yCoordinate = yCoordinate;
+        this.image = image;
         zombieCount++;
     }
 
@@ -25,11 +29,23 @@ public class Zombies {
     }
 
     public void setXCoordinate(int x){
-        this.xCoordinate = x;
+        this.xCoordinate += x;
     }
 
     public void setYCoordinate(int x){
-        this.yCoordinate = x;
+        this.yCoordinate += x;
+    }
+
+    public int getXCoordinate(){
+        return xCoordinate;
+    }
+
+    public int getYCoordinate(){
+        return yCoordinate;
+    }
+
+    public Image getImage(){
+        return image;
     }
 
     public void zombieHit(){
